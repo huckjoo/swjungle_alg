@@ -1,5 +1,11 @@
-a = [1, 2, 3]
+import heapq
 
-temp = a.pop()
+nums = [4, 1, 7, 3, 8, 5]
+heap = []
 
-print(temp)
+for num in nums:
+    heapq.heappush(heap, (-num, num))  # (우선 순위, 값)
+
+print(heap)
+while heap:
+    print(heapq.heappop(heap)[1])  # index 1
