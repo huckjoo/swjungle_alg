@@ -1,3 +1,5 @@
-N, K = map(int, input().split())
-K = 3
-print(K)
+a = [1, 2, 3]
+
+temp = a.pop()
+
+print(temp)
