@@ -11,7 +11,7 @@ def max_square(left, right):
         # 경계선 왼쪽과 오른쪽, 경계선에 걸쳐 있는 최대 직사각형 중 최댓값을 반환한다.
         # 경계선에 걸쳐 있는 직사각형 중 최댓값인 temp를 구한다
         mid = (left + right) // 2
-        pl = mid        # 경계선
+        pl = mid        # 경계선 > 근데 설명대로라면 pl = mid-1, pr = mid가 되어야지 경계선을 포함한다.
         pr = mid + 1    # 경계선보다 한 칸 오른쪽(-> 나중에 왼쪽은 보게 된다. 지금은 오른쪽만 봐도 ㄱㅊ)
         min_height = min(lst[pl], lst[pr])  # 그 둘 중 작은 값
         temp = min_height * 2   # 오른쪽, 왼쪽 두 블록을 합한 넓이. 얘가 temp이다.
@@ -46,6 +46,7 @@ def max_square(left, right):
             temp = max(temp, min_height * width)
         return(max(max_square(left, mid), max_square(mid + 1, right), temp))
 
+
         # 경계선 왼쪽(max_square(left, mid))과 오른쪽(max_square(mid + 1, right)),
         # 경계선에 걸쳐 있는 최대 직사각형(temp) 중 최댓값을 반환한다.
 while True:
@@ -53,5 +54,6 @@ while True:
     n = lst[0]
     if lst[0] == 0:
         break
+    print('lst:', lst)
     # 내가 다시 풀때는 lst대신 histo = lst[1:]로 받고, histo.insert(0,0) 해주자
     print(max_square(1, len(lst)-1))
