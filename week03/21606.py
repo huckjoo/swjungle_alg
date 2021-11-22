@@ -36,6 +36,7 @@ def dfs1(now):
 
 for i in range(1, n+1):
     if in_out[i-1] == '0':  # 실외일때만 dfs를 실행시킴
+        # 여기서 check해주지 않으면 매번 실행되서 오류가 남(한번 본 실외노드의 합은 다시 볼 필요가 없음)
         if visited[i] == 0:
             cnt = dfs(i, 0)
             ans += cnt*(cnt-1)
