@@ -1,4 +1,4 @@
-# check를 만드는게 메모리를 훨씬 덜 사용한다. 
+# check를 만드는게 메모리를 훨씬 덜 사용한다.
 # 왜냐하면 현재의 값을 저장하지 않으면, 1+1+1, 1+2, 3 등등 모든걸 queue에 넣어서 숫자가 커질수록 queue의 메모리가 기하급수적으로 커지기 때문이다.
 import sys
 from collections import deque
@@ -12,7 +12,7 @@ for _ in range(n):
             coins.append(now)
 
 queue = deque()
-queue.append((0, 0))
+queue.append((0, 0))  # coin값, cnt
 while queue:
     now, cnt = queue.popleft()
     ch[now] = True
