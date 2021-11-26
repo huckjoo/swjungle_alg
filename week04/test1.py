@@ -1,15 +1,6 @@
+N = 5
 
-dp = [0]*100  # 99개까지의 인덱스 구현가능
-
-
-def fibo(x):
-    if x == 1 or x == 2:
-        return 1
-    if dp[x] != 0:
-        return dp[x]
-    else:
-        dp[x] = fibo(x-1) + fibo(x-2)
-        return dp[x]
-
-
-print(fibo(99))
+board = [[0]*N for i in range(N)]
+for i in range(1, N):
+    for j in range(0, N-i):
+        print(j, j+i)
