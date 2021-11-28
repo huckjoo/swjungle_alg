@@ -12,6 +12,7 @@ def TSP(board):
     INF = float('inf')
 
     def path_find(last, visited):
+        print(dp)
         if all_visited == visited:  # 모든 도시를 방문했다면
             return board[last][0] or INF
         if dp[last][visited] is not None:  # 예전에 방문했던 곳이라면,
