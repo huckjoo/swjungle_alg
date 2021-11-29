@@ -1,4 +1,4 @@
-a = [1, 1, 2, 2, 3, 4, 5]
-
-b = set(a)
-print(b)
+a = [(1,7),(3,4),(4,8),(1,4),(3,1)]
+a.sort(key = lambda x:x[1])
+a.sort(key = lambda x:x[0])
+print(a)

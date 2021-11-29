@@ -32,9 +32,8 @@ for k in virus:
 while queue:
     if time == S:
         break
-    if time >= 201:
-        break
     k, x, y = queue.popleft()
+    print(queue)
     for i in range(4):
         nx = x + dx[i]
         ny = y + dy[i]
@@ -46,5 +45,6 @@ while queue:
                 if nx == X-1 and ny == Y-1:
                     print(k)
                     exit(0)
+    time += 1
 
 print(board[X-1][Y-1])
