@@ -1,3 +1,4 @@
+# 2차원 dp로 푼 동전
 import sys
 
 T = int(sys.stdin.readline())

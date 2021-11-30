@@ -1,3 +1,4 @@
+# 1차원 dp
 import sys
 
 T = int(sys.stdin.readline())
