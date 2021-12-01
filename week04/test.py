@@ -1,3 +1,1 @@
-a = 2**123456
-b = 33
-print(a/b)
+print(float(0.1 + 0.2))
