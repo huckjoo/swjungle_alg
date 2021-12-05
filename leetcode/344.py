@@ -1,3 +1,5 @@
+# 344. reverse-string
+# 투포인터 사용
 def reverseString(s):
     N = len(s)
     pl = 0

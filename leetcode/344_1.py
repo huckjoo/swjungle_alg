@@ -1,6 +1,5 @@
-from collections import deque
-
-
+# 344. reverse-string
+# 내장함수 사용
 def reverseString(s):
     s.reverse()
     return s
