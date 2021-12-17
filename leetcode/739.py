@@ -4,6 +4,7 @@ Memory Usage: 25.3 MB, less than 68.77% of Python3 online submissions for Daily 
 
 어떤 값을 스택에 넣고, 언제 빼줘야 하는지 감이 잘 안온다...
 '''
+from typing import List
 
 
 class Solution:
