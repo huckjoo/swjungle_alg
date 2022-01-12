@@ -6,16 +6,17 @@
 #         self.right = right
 class Solution:
     def bstToGst(self, root):
-        
-        self.cursum = 0
-        
+
+        self.cur_sum = 0
+
         def dfs(node):
-            if not node:
+            if node == None:
                 return
             dfs(node.right)
-            self.cursum += node.val
-            node.val = self.cursum
+            self.cur_sum += node.val
+            node.val = self.cur_sum
             dfs(node.left)
-            
+
         dfs(root)
+
         return root
