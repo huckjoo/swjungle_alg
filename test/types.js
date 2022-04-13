@@ -12,4 +12,5 @@ let e = [1, 2, 3];
 let f = e;
 f[0] = 8;
 console.log(f);
+console.log(e);
 console.log(e === f); // true
