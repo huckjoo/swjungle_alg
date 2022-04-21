@@ -1,39 +1,45 @@
 function solution(relation) {
-  const keys = [];
-  const totalAttrCount = relation[0].length;
-  const indexList = Array.from(Array(totalAttrCount), (x, index) => index);
-
-  const isUnique = (relation, attrIndexComb) => {
-    let result = Array.from(Array(relation.length), (x) => '');
-    for (const attrIndex of attrIndexComb) {
-      relation.forEach((row, rowIndex) => (result[rowIndex] += row[attrIndex]));
-    }
-    return result.length === [...new Set(result)].length;
+  let keys = [];
+  let totalIdx = Array.from(Array(relation[0].length), (x, i) => i);
+  const isUnique = (relation, indexCombis) => {
+    const tempArr = Array.from(Array(relation.length), (x) => '');
+    relation.forEach((row, idx) => {
+      for (const indexCombi of indexCombis) {
+        tempArr[idx] += row[indexCombi];
+      }
+    });
+    return tempArr.length === [...new Set(tempArr)].length;
   };
-
-  const isMinimal = (attrComb) => {
-    for (const key of keys) if (key.every((attr) => attrComb.includes(attr))) return false;
+  // keys에 key의 부분집합이 존재하는지 확인
+  const isMinimal = (indexCombis) => {
+    for (const key of keys) {
+      if (key.every((x) => indexCombis.includes(x))) {
+        return false;
+      }
+    }
     return true;
   };
 
-  for (let attrCount = 1; attrCount <= totalAttrCount; attrCount++) {
-    const combinations = getCombinations(indexList, attrCount);
-    for (const attrComb of combinations) {
-      if (isMinimal(attrComb) && isUnique(relation, attrComb)) keys.push(attrComb);
+  for (let i = 1; i <= relation[0].length; i++) {
+    const currCombis = getCombi(totalIdx, i);
+    for (const currCombi of currCombis) {
+      if (isMinimal(currCombi) && isUnique(relation, currCombi)) {
+        keys.push(currCombi);
+      }
     }
   }
 
   return keys.length;
 }
-
-const getCombinations = (array, selectNumber) => {
-  const result = [];
-  if (selectNumber === 1) {
-    return array.map((element) => [element]);
+// 조합을 구하는 함수
+const getCombi = (array, number) => {
+  let result = [];
+  if (number === 1) {
+    return array.map((e) => [e]);
   }
-  array.forEach((fixed, index, origin) => {
-    const restCombinations = getCombinations(origin.slice(index + 1), selectNumber - 1);
-    const attached = restCombinations.map((restCombination) => [fixed, ...restCombination]);
+  array.forEach((fixed, idx, origin) => {
+    let restCombis = getCombi(origin.slice(idx + 1), number - 1);
+    let attached = restCombis.map((restCombi) => [fixed, ...restCombi]);
     result.push(...attached);
   });
   return result;
