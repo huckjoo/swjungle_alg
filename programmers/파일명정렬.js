@@ -1,16 +1,16 @@
 function solution(files) {
-  return files.sort((a,b)=>{
-      const headA = a.match(/\D+/)[0].toUpperCase();
-      const headB = b.match(/\D+/)[0].toUpperCase();
-      if(headA < headB){
+  files.sort((a,b)=>{
+      let headA = a.match(/\D+/)[0].toUpperCase();
+      let headB = b.match(/\D+/)[0].toUpperCase();
+      if (headA < headB){
           return -1;
-      }
-      if(headA > headB){
+      }else if(headA > headB){
           return 1;
+      }else{
+          let numA = Number(a.match(/\d+/)[0]);
+          let numB = Number(b.match(/\d+/)[0]);
+          return numA-numB;
       }
-      // headA와 headB가 같다면
-      const numberA = Number(a.match(/\d+/)[0]);
-      const numberB = Number(b.match(/\d+/)[0]);
-      return numberA - numberB
   })
+  return files
 }
